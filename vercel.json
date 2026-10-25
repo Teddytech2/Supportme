@@ -1,11 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" },
-    { "src": "public/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*)", "dest": "/public/$1" }
-  ]
+  "name": "teddy-tech-support-donations",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Teddy Tech Support voluntary donation website",
+  "engines": {
+    "node": ">=18"
+  }
 }
