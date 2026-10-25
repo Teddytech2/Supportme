@@ -1,172 +1,781 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#090b10">
-  <meta name="description" content="Support Teddy Tech's free tools, automation projects, hosting, and community services with a voluntary donation.">
-  <title>Teddy Tech Support | Support the Projects</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Teddy Tech Support | Support Our Projects</title>
+
+  <meta
+    name="description"
+    content="Support Teddy Tech projects through voluntary donations. Help us maintain hosting, servers, domains, security, backups, and free services."
+  >
+
+  <meta name="theme-color" content="#080b14">
+
   <style>
-    :root{--bg:#090b10;--panel:#11151d;--line:#252c38;--gold:#ffd34e;--muted:#a5afbf;--white:#f6f7fb;--green:#5fe0a0}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#29230e 0,transparent 40%),var(--bg);color:var(--white);font-family:"DM Sans",sans-serif;min-height:100vh}
-    a{color:inherit}.wrap{max-width:1040px;margin:auto;padding:24px 20px 28px}.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:52px}.brand{display:flex;align-items:center;gap:11px;font:700 17px "Space Grotesk",sans-serif;letter-spacing:-.4px}.logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--gold);color:#15120a;font-weight:900;font-size:21px;box-shadow:0 0 28px #ffd34e25}.badge{font-size:12px;border:1px solid #3b3a2c;border-radius:999px;padding:8px 11px;color:#e6d89d}
-    .hero{text-align:center;max-width:710px;margin:0 auto 36px}.eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}.hero h1{font:700 clamp(36px,6vw,62px)/1.05 "Space Grotesk",sans-serif;letter-spacing:-2px;margin:15px 0}.hero h1 span{color:var(--gold)}.hero p{color:var(--muted);font-size:16px;line-height:1.75;margin:0 auto;max-width:610px}
-    .grid{display:grid;grid-template-columns:1fr .9fr;gap:18px;align-items:stretch}.card{background:linear-gradient(145deg,#141923,#0f1219);border:1px solid var(--line);border-radius:23px;padding:26px;box-shadow:0 22px 70px #0003}.card h2{font:600 21px "Space Grotesk",sans-serif;margin:0 0 8px}.sub{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 23px}
-    label{display:block;font-size:13px;color:#d8deea;font-weight:600;margin:17px 0 8px}.input{width:100%;border:1px solid #303847;background:#0b0e14;color:white;border-radius:12px;padding:14px;font:inherit;outline:none}.input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #ffd34e17}.amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.amt{border:1px solid #303847;border-radius:11px;background:#0c1017;color:#dce2ec;padding:12px 4px;cursor:pointer;font-weight:700}.amt.active,.amt:hover{border-color:var(--gold);color:var(--gold);background:#ffd34e0d}.currrow{display:flex;gap:10px}.currrow select{width:115px;flex-shrink:0}.payment-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.method{background:#0b0e14;border:1px solid #303847;border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;color:#e6eaf2;font-weight:600}.method.active{border-color:var(--gold);background:#ffd34e0d;color:var(--gold)}.method small{display:block;color:var(--muted);font-weight:400;font-size:11px;margin-top:5px}.submit{width:100%;border:0;border-radius:12px;background:var(--gold);color:#171307;padding:15px;font:700 15px "Space Grotesk",sans-serif;margin-top:22px;cursor:pointer}.submit:hover{filter:brightness(1.06);transform:translateY(-1px)}.submit:disabled{opacity:.65;cursor:wait;transform:none}.secure{color:#9aa5b6;text-align:center;font-size:11px;margin-top:13px}.message{display:none;margin-top:14px;border-radius:10px;padding:12px;font-size:13px;line-height:1.5}.message.error{display:block;background:#3b171c;color:#ffb9bf}.message.ok{display:block;background:#103322;color:#a7f2c6}
-    .why{display:flex;flex-direction:column;gap:16px}.why-intro{font-size:14px;line-height:1.8;color:var(--muted)}.feature{display:flex;gap:13px;align-items:flex-start}.icon{flex:0 0 40px;height:40px;border:1px solid #393426;background:#201c11;border-radius:12px;display:grid;place-items:center;font-size:18px}.feature b{display:block;font-size:14px;margin:2px 0 5px}.feature span{font-size:12px;color:var(--muted);line-height:1.6;display:block}.notice{border:1px solid #343025;background:#1b1912;color:#d8ceaa;border-radius:12px;padding:14px;font-size:12px;line-height:1.7;margin-top:auto}.success{display:none;text-align:center;padding:20px 0}.success .check{width:65px;height:65px;margin:0 auto 16px;border-radius:50%;background:#133a27;color:var(--green);display:grid;place-items:center;font-size:30px}.success h2{font-size:27px}.success p{color:var(--muted);line-height:1.7}.again{background:transparent;border:1px solid #3c4555;color:white;padding:11px 15px;border-radius:10px;cursor:pointer}
-    footer{margin-top:30px;border-top:1px solid #222833;padding-top:22px;text-align:center;color:var(--muted);font-size:12px}.channel{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#15291f;border:1px solid #28553e;color:#a8f3c7;text-decoration:none;padding:13px 19px;border-radius:12px;font-weight:700;font-size:13px;margin-bottom:18px}.channel:hover{background:#1c392a}footer p{margin:4px 0 0}
-    @media(max-width:760px){.wrap{padding:17px 14px 24px}.nav{margin-bottom:38px}.grid{grid-template-columns:1fr}.hero{margin-bottom:26px}.card{padding:21px}.hero h1{letter-spacing:-1.3px}.why{gap:18px}.notice{margin-top:4px}}
+    :root {
+      --bg: #080b14;
+      --card: #111827;
+      --gold: #ffd447;
+      --gold-dark: #e7ae19;
+      --text: #f8fafc;
+      --muted: #a7b0c0;
+      --border: rgba(255, 255, 255, 0.1);
+      --green: #22c55e;
+      --red: #f87171;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(234, 179, 8, 0.12),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(37, 99, 235, 0.12),
+          transparent 35%
+        ),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, 1050px);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: var(--gold);
+      color: #111;
+      border-radius: 14px;
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .badge {
+      border: 1px solid rgba(255, 212, 71, 0.3);
+      background: rgba(255, 212, 71, 0.08);
+      color: var(--gold);
+      border-radius: 30px;
+      padding: 7px 12px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    main {
+      padding: 65px 0;
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 45px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 16px 0;
+      font-size: clamp(34px, 6vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -1.8px;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: start;
+    }
+
+    .card {
+      background: rgba(17, 24, 39, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 27px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
+
+    .subtext {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 0;
+    }
+
+    .field {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #0a1020;
+      color: var(--text);
+      border-radius: 11px;
+      padding: 14px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(255, 212, 71, 0.08);
+    }
+
+    .amount-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+      margin-top: 10px;
+    }
+
+    .amount-button {
+      background: #0a1020;
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 11px 5px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .amount-button:hover,
+    .amount-button.active {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(255, 212, 71, 0.08);
+    }
+
+    .primary-button {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 24px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .primary-button:hover {
+      background: var(--gold-dark);
+      transform: translateY(-1px);
+    }
+
+    .primary-button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+      transform: none;
+    }
+
+    .notice {
+      display: none;
+      margin-top: 16px;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .notice.error {
+      display: block;
+      color: #fecaca;
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+
+    .notice.success {
+      display: block;
+      color: #bbf7d0;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+    }
+
+    .benefit {
+      display: flex;
+      gap: 14px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .benefit:last-child {
+      border-bottom: 0;
+    }
+
+    .benefit-icon {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(255, 212, 71, 0.1);
+      font-size: 20px;
+    }
+
+    .benefit h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+    }
+
+    .benefit p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .disclaimer {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    .channel-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      margin-top: 22px;
+      padding: 14px;
+      text-decoration: none;
+      background: rgba(34, 197, 94, 0.09);
+      color: #86efac;
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .channel-button:hover {
+      background: rgba(34, 197, 94, 0.15);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .payment-result {
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    .result-icon {
+      width: 75px;
+      height: 75px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: var(--green);
+      border-radius: 50%;
+      font-size: 35px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 760px) {
+      main {
+        padding: 42px 0;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .badge {
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <main class="wrap">
-    <nav class="nav">
-      <div class="brand"><div class="logo">T</div><span>TEDDY TECH <span style="color:var(--gold)">SUPPORT</span></span></div>
-      <div class="badge">✦ Voluntary support</div>
-    </nav>
-    <section class="hero">
-      <div class="eyebrow">Built by the community, for the community</div>
-      <h1>Help us keep the<br><span>good stuff running.</span></h1>
-      <p>Your optional contribution helps cover hosting, servers, domains, maintenance and future automation projects. Every donation is appreciated — and all services remain free.</p>
-    </section>
-    <section class="grid">
-      <div class="card">
-        <div id="donationForm">
-          <h2>Make a donation</h2>
-          <p class="sub">Choose any amount you're comfortable with. There's no fixed target and no pressure to give.</p>
-          <form id="form">
-            <label for="email">Email address</label>
-            <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
-            <label>Choose an amount</label>
-            <div class="amounts">
-              <button class="amt" type="button" data-amount="100">100</button>
-              <button class="amt active" type="button" data-amount="250">250</button>
-              <button class="amt" type="button" data-amount="500">500</button>
-              <button class="amt" type="button" data-amount="1000">1,000</button>
-            </div>
-            <label for="amount">Or enter your own amount</label>
-            <div class="currrow">
-              <select class="input" id="currency" aria-label="Currency">
-                <option value="KES">KES</option><option value="NGN">NGN</option><option value="GHS">GHS</option><option value="ZAR">ZAR</option>
-              </select>
-              <input class="input" id="amount" type="number" min="1" max="10000000" step="1" value="250" required inputmode="numeric">
-            </div>
-            <label>Payment method</label>
-            <div class="payment-options">
-              <button class="method active" type="button" data-channel="all">💳 Card <small>Debit or credit card</small></button>
-              <button class="method" type="button" data-channel="mobile_money">📱 Mobile money <small>Where available</small></button>
-            </div>
-            <p class="sub" style="margin:10px 0 0">Card checkout may also show mobile money where supported. Paystack displays the methods available for your account and currency.</p>
-            <button class="submit" id="payBtn" type="submit">Continue to secure payment →</button>
-            <div class="message" id="message" role="status"></div>
-            <div class="secure">🔒 Secure checkout powered by Paystack</div>
-          </form>
-        </div>
-        <div class="success" id="success" aria-live="polite">
-          <div class="check">✓</div>
-          <h2 id="successTitle">Thank you for supporting us!</h2>
-          <p id="successText">Your support means a lot. Your contribution helps us maintain our free projects and services.</p>
-          <button class="again" id="again" type="button">Make another donation</button>
+  <header>
+    <div class="container navbar">
+      <div class="brand">
+        <div class="brand-icon">T</div>
+        <div>
+          TEDDY TECH
+          <small>SUPPORT & PROJECTS</small>
         </div>
       </div>
-      <aside class="card why">
-        <div>
-          <h2>Where your support goes</h2>
-          <p class="why-intro">Teddy Tech is a project name for community tools and experiments. Donations are entirely optional and help us keep useful services available.</p>
-        </div>
-        <div class="feature"><div class="icon">☁️</div><div><b>Servers & hosting</b><span>Keep websites, bots and automation services online.</span></div></div>
-        <div class="feature"><div class="icon">🛠️</div><div><b>Maintenance & security</b><span>Updates, backups, bug fixes and reliability improvements.</span></div></div>
-        <div class="feature"><div class="icon">⚡</div><div><b>New free projects</b><span>Build and improve tools that the community can use without a fee.</span></div></div>
-        <div class="notice">💛 <strong>No purchase required.</strong> Donations are voluntary and do not unlock paid features or guarantee a service. Please only contribute what you can comfortably afford.</div>
-      </aside>
+
+      <div class="badge">VOLUNTARY SUPPORT</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">Built by Teddy Tech</div>
+
+      <h1>
+        Help Us Keep<br>
+        <span>Technology Free.</span>
+      </h1>
+
+      <p>
+        Your voluntary support helps us maintain our servers, hosting,
+        domains, backups, security, and free technology services.
+        Every contribution is appreciated.
+      </p>
     </section>
-    <footer>
-      <a class="channel" href="https://whatsapp.com/channel/0029Vb6NveDBPzjPa4vIRt3n" target="_blank" rel="noopener noreferrer">◉ Join our WhatsApp Channel ↗</a>
-      <p>Made with care by <strong style="color:#e5e9f1">Teddy Tech</strong></p>
-      <p>Voluntary community support · Secure payments by Paystack</p>
-    </footer>
+
+    <section class="layout">
+      <div class="card" id="donationCard">
+        <h2>Support Our Projects</h2>
+
+        <p class="subtext">
+          Choose any amount you wish to contribute. There are no mandatory
+          donation packages or targets.
+        </p>
+
+        <form id="donationForm">
+          <div class="field">
+            <label for="email">Email address</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="amount">Donation amount</label>
+
+            <div class="amount-grid">
+              <button class="amount-button" type="button" data-amount="100">
+                100
+              </button>
+
+              <button class="amount-button" type="button" data-amount="250">
+                250
+              </button>
+
+              <button class="amount-button" type="button" data-amount="500">
+                500
+              </button>
+            </div>
+
+            <input
+              id="amount"
+              type="number"
+              min="1"
+              step="0.01"
+              placeholder="Enter any amount"
+              required
+              style="margin-top: 12px"
+            >
+          </div>
+
+          <div class="field">
+            <label for="currency">Currency</label>
+
+            <select id="currency" required>
+              <option value="KES">KES — Kenyan Shilling</option>
+              <option value="NGN">NGN — Nigerian Naira</option>
+              <option value="GHS">GHS — Ghanaian Cedi</option>
+              <option value="ZAR">ZAR — South African Rand</option>
+              <option value="USD">USD — US Dollar</option>
+            </select>
+          </div>
+
+          <button class="primary-button" id="donateButton" type="submit">
+            Continue to Secure Payment →
+          </button>
+
+          <div
+            id="formNotice"
+            class="notice"
+            role="status"
+            aria-live="polite"
+          ></div>
+        </form>
+
+        <p class="disclaimer">
+          Donations are entirely voluntary. Our services remain free;
+          contributing is not required to use them. Payments are processed
+          by Paystack.
+        </p>
+      </div>
+
+      <div class="card">
+        <div id="supportContent">
+          <h2>Where Your Support Goes</h2>
+
+          <p class="subtext">
+            Contributions help keep our projects available and maintained.
+          </p>
+
+          <div class="benefit">
+            <div class="benefit-icon">☁️</div>
+            <div>
+              <h3>Hosting & Servers</h3>
+              <p>Help cover hosting, VPS servers, and infrastructure costs.</p>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">🌐</div>
+            <div>
+              <h3>Domains & Websites</h3>
+              <p>Maintain websites, domains, and online project availability.</p>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">🛡️</div>
+            <div>
+              <h3>Security & Backups</h3>
+              <p>Support maintenance, data protection, and reliable backups.</p>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">🤖</div>
+            <div>
+              <h3>Free Technology Projects</h3>
+              <p>Help us develop and maintain free automation tools and services.</p>
+            </div>
+          </div>
+
+          <a
+            class="channel-button"
+            href="https://whatsapp.com/channel/0029Vb6NveDBPzjPa4vIRt3n"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            💬 Join Our WhatsApp Channel
+          </a>
+        </div>
+
+        <div id="paymentResult" class="payment-result hidden">
+          <div class="result-icon" id="resultIcon">✓</div>
+
+          <h2 id="resultTitle">Thank You!</h2>
+
+          <p class="subtext" id="resultMessage">
+            Your support means a lot to Teddy Tech.
+          </p>
+
+          <div id="paymentDetails" class="subtext"></div>
+
+          <a
+            class="channel-button"
+            href="https://whatsapp.com/channel/0029Vb6NveDBPzjPa4vIRt3n"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            💬 Join Our WhatsApp Channel
+          </a>
+
+          <button
+            class="primary-button"
+            type="button"
+            id="returnButton"
+          >
+            Return to Donation Page
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">
+      <strong>TEDDY TECH</strong> · Independent technology projects.
+      All contributions are voluntary.
+      <br>
+      Payments are processed securely through Paystack.
+    </div>
+  </footer>
+
   <script>
-    const form = document.getElementById('form');
+    const form = document.getElementById('donationForm');
+    const emailInput = document.getElementById('email');
     const amountInput = document.getElementById('amount');
     const currencyInput = document.getElementById('currency');
-    const message = document.getElementById('message');
-    const payBtn = document.getElementById('payBtn');
-    let channel = 'all';
+    const donateButton = document.getElementById('donateButton');
+    const formNotice = document.getElementById('formNotice');
 
-    document.querySelectorAll('.amt').forEach(btn => btn.addEventListener('click', () => {
-      document.querySelectorAll('.amt').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      amountInput.value = btn.dataset.amount;
-    }));
-    amountInput.addEventListener('input', () => {
-      document.querySelectorAll('.amt').forEach(b => b.classList.toggle('active', b.dataset.amount === amountInput.value));
+    const donationCard = document.getElementById('donationCard');
+    const supportContent = document.getElementById('supportContent');
+    const paymentResult = document.getElementById('paymentResult');
+
+    function showNotice(message, type = 'error') {
+      formNotice.textContent = message;
+      formNotice.className = 'notice ' + type;
+    }
+
+    function clearNotice() {
+      formNotice.textContent = '';
+      formNotice.className = 'notice';
+    }
+
+    document.querySelectorAll('[data-amount]').forEach(button => {
+      button.addEventListener('click', () => {
+        amountInput.value = button.dataset.amount;
+
+        document.querySelectorAll('[data-amount]').forEach(item => {
+          item.classList.remove('active');
+        });
+
+        button.classList.add('active');
+      });
     });
-    currencyInput.addEventListener('change', () => {
-      document.querySelectorAll('.amt').forEach(b => b.textContent = Number(b.dataset.amount).toLocaleString());
-    });
-    document.querySelectorAll('.method').forEach(btn => btn.addEventListener('click', () => {
-      document.querySelectorAll('.method').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      channel = btn.dataset.channel;
-    }));
+
+    async function readJsonResponse(response) {
+      const text = await response.text();
+
+      try {
+        return JSON.parse(text);
+      } catch {
+        console.error(
+          'Expected JSON but received:',
+          text.slice(0, 500)
+        );
+
+        throw new Error(
+          'The payment API returned a non-JSON response. Check the Vercel deployment and API routes.'
+        );
+      }
+    }
 
     form.addEventListener('submit', async event => {
       event.preventDefault();
-      message.className = 'message'; message.textContent = '';
+      clearNotice();
+
+      const email = emailInput.value.trim();
       const amount = Number(amountInput.value);
-      if (!Number.isInteger(amount) || amount < 1 || amount > 10000000) {
-        message.className = 'message error'; message.textContent = 'Please enter a valid donation amount.'; return;
+      const currency = currencyInput.value;
+
+      if (!email) {
+        showNotice('Please enter your email address.');
+        return;
       }
-      payBtn.disabled = true; payBtn.textContent = 'Preparing secure checkout…';
+
+      if (!Number.isFinite(amount) || amount <= 0) {
+        showNotice('Please enter a valid donation amount.');
+        return;
+      }
+
+      donateButton.disabled = true;
+      donateButton.textContent = 'Connecting to Paystack...';
+
       try {
         const response = await fetch('/api/initialize', {
-          method: 'POST', headers: {'Content-Type':'application/json'},
-          body: JSON.stringify({email: document.getElementById('email').value.trim(), amount, currency: currencyInput.value, channel})
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            email,
+            amount,
+            currency
+          })
         });
-        const data = await response.json();
-        if (!response.ok || !data.authorization_url) throw new Error(data.error || 'Unable to start payment.');
+
+        const data = await readJsonResponse(response);
+
+        if (!response.ok || !data.authorization_url) {
+          throw new Error(
+            data.error || 'Unable to start payment. Please try again.'
+          );
+        }
+
         window.location.href = data.authorization_url;
-      } catch (err) {
-        message.className = 'message error'; message.textContent = err.message || 'Payment failed to start. Please try again.';
-        payBtn.disabled = false; payBtn.textContent = 'Continue to secure payment →';
+      } catch (error) {
+        showNotice(error.message || 'Something went wrong.');
+
+        donateButton.disabled = false;
+        donateButton.textContent = 'Continue to Secure Payment →';
       }
     });
 
-    document.getElementById('again').addEventListener('click', () => {
-      document.getElementById('success').style.display = 'none';
-      document.getElementById('donationForm').style.display = 'block';
-      history.replaceState({}, '', location.pathname);
+    document.getElementById('returnButton').addEventListener('click', () => {
+      window.location.href = window.location.pathname;
     });
 
-    async function checkPaymentReturn() {
-      const params = new URLSearchParams(location.search);
+    async function verifyReturnedPayment() {
+      const params = new URLSearchParams(window.location.search);
       const reference = params.get('reference');
-      if (!reference || params.get('payment') !== 'return') return;
-      document.getElementById('donationForm').style.display = 'none';
-      const success = document.getElementById('success');
-      success.style.display = 'block';
-      document.getElementById('successTitle').textContent = 'Checking your payment…';
-      document.getElementById('successText').textContent = 'Please wait while Paystack confirms the transaction.';
+
+      if (!reference) {
+        return;
+      }
+
+      donationCard.classList.add('hidden');
+      supportContent.classList.add('hidden');
+      paymentResult.classList.remove('hidden');
+
+      document.getElementById('resultIcon').textContent = '…';
+      document.getElementById('resultTitle').textContent = 'Checking Payment';
+      document.getElementById('resultMessage').textContent =
+        'Please wait while we confirm your transaction with Paystack.';
+
       try {
-        const response = await fetch('/api/verify?reference=' + encodeURIComponent(reference));
-        const data = await response.json();
-        if (response.ok && data.status === 'success') {
-          document.getElementById('successTitle').textContent = 'Thank you for your donation!';
-          document.getElementById('successText').textContent = 'Your payment was verified successfully. Your support helps keep Teddy Tech projects and free services running.';
-        } else {
-          document.getElementById('successTitle').textContent = 'Payment not confirmed yet';
-          document.getElementById('successText').textContent = 'Paystack has not confirmed this transaction as successful. If you completed payment, please wait a little and check your Paystack receipt before trying again.';
+        const response = await fetch(
+          '/api/verify?reference=' + encodeURIComponent(reference),
+          {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json'
+            },
+            cache: 'no-store'
+          }
+        );
+
+        const data = await readJsonResponse(response);
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Payment verification failed.');
         }
-      } catch (_) {
-        document.getElementById('successTitle').textContent = 'We could not verify the payment yet';
-        document.getElementById('successText').textContent = 'Please check your Paystack receipt. If money was deducted, contact support before making another payment.';
+
+        if (data.status === 'success') {
+          document.getElementById('resultIcon').textContent = '✓';
+          document.getElementById('resultTitle').textContent =
+            'Thank You for Your Support!';
+
+          document.getElementById('resultMessage').textContent =
+            'Paystack has confirmed your donation. Your support helps us maintain our projects and free services.';
+
+          document.getElementById('paymentDetails').textContent =
+            'Reference: ' + data.reference;
+        } else {
+          document.getElementById('resultIcon').textContent = '!';
+          document.getElementById('resultTitle').textContent =
+            'Payment Not Confirmed';
+
+          document.getElementById('resultMessage').textContent =
+            'The transaction is currently marked as "' +
+            data.status +
+            '". Please check your Paystack receipt or contact support if you were charged.';
+
+          document.getElementById('paymentDetails').textContent =
+            'Reference: ' + data.reference;
+        }
+      } catch (error) {
+        document.getElementById('resultIcon').textContent = '!';
+        document.getElementById('resultTitle').textContent =
+          'Unable to Confirm Payment';
+
+        document.getElementById('resultMessage').textContent =
+          error.message ||
+          'We could not verify the payment. Please try again later.';
+
+        document.getElementById('paymentDetails').textContent =
+          'Reference: ' + reference;
       }
     }
-    checkPaymentReturn();
+
+    verifyReturnedPayment();
   </script>
 </body>
 </html>
