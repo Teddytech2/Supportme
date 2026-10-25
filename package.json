@@ -1,0 +1,9 @@
+{
+  "name": "teddy-tech-support-donations",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Teddy Tech Support voluntary donation website for Vercel",
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node server.js" },
+  "dependencies": {}
+}

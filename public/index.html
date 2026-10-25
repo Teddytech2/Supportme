@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Support Teddy Tech's free tools, automation projects, hosting, and community services with a voluntary donation.">
+  <title>Teddy Tech Support | Support the Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#090b10;--panel:#11151d;--line:#252c38;--gold:#ffd34e;--muted:#a5afbf;--white:#f6f7fb;--green:#5fe0a0}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -10%,#29230e 0,transparent 40%),var(--bg);color:var(--white);font-family:"DM Sans",sans-serif;min-height:100vh}
+    a{color:inherit}.wrap{max-width:1040px;margin:auto;padding:24px 20px 28px}.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:52px}.brand{display:flex;align-items:center;gap:11px;font:700 17px "Space Grotesk",sans-serif;letter-spacing:-.4px}.logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--gold);color:#15120a;font-weight:900;font-size:21px;box-shadow:0 0 28px #ffd34e25}.badge{font-size:12px;border:1px solid #3b3a2c;border-radius:999px;padding:8px 11px;color:#e6d89d}
+    .hero{text-align:center;max-width:710px;margin:0 auto 36px}.eyebrow{color:var(--gold);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}.hero h1{font:700 clamp(36px,6vw,62px)/1.05 "Space Grotesk",sans-serif;letter-spacing:-2px;margin:15px 0}.hero h1 span{color:var(--gold)}.hero p{color:var(--muted);font-size:16px;line-height:1.75;margin:0 auto;max-width:610px}
+    .grid{display:grid;grid-template-columns:1fr .9fr;gap:18px;align-items:stretch}.card{background:linear-gradient(145deg,#141923,#0f1219);border:1px solid var(--line);border-radius:23px;padding:26px;box-shadow:0 22px 70px #0003}.card h2{font:600 21px "Space Grotesk",sans-serif;margin:0 0 8px}.sub{color:var(--muted);font-size:13px;line-height:1.6;margin:0 0 23px}
+    label{display:block;font-size:13px;color:#d8deea;font-weight:600;margin:17px 0 8px}.input{width:100%;border:1px solid #303847;background:#0b0e14;color:white;border-radius:12px;padding:14px;font:inherit;outline:none}.input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #ffd34e17}.amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.amt{border:1px solid #303847;border-radius:11px;background:#0c1017;color:#dce2ec;padding:12px 4px;cursor:pointer;font-weight:700}.amt.active,.amt:hover{border-color:var(--gold);color:var(--gold);background:#ffd34e0d}.currrow{display:flex;gap:10px}.currrow select{width:115px;flex-shrink:0}.payment-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.method{background:#0b0e14;border:1px solid #303847;border-radius:12px;padding:14px 10px;text-align:center;cursor:pointer;color:#e6eaf2;font-weight:600}.method.active{border-color:var(--gold);background:#ffd34e0d;color:var(--gold)}.method small{display:block;color:var(--muted);font-weight:400;font-size:11px;margin-top:5px}.submit{width:100%;border:0;border-radius:12px;background:var(--gold);color:#171307;padding:15px;font:700 15px "Space Grotesk",sans-serif;margin-top:22px;cursor:pointer}.submit:hover{filter:brightness(1.06);transform:translateY(-1px)}.submit:disabled{opacity:.65;cursor:wait;transform:none}.secure{color:#9aa5b6;text-align:center;font-size:11px;margin-top:13px}.message{display:none;margin-top:14px;border-radius:10px;padding:12px;font-size:13px;line-height:1.5}.message.error{display:block;background:#3b171c;color:#ffb9bf}.message.ok{display:block;background:#103322;color:#a7f2c6}
+    .why{display:flex;flex-direction:column;gap:16px}.why-intro{font-size:14px;line-height:1.8;color:var(--muted)}.feature{display:flex;gap:13px;align-items:flex-start}.icon{flex:0 0 40px;height:40px;border:1px solid #393426;background:#201c11;border-radius:12px;display:grid;place-items:center;font-size:18px}.feature b{display:block;font-size:14px;margin:2px 0 5px}.feature span{font-size:12px;color:var(--muted);line-height:1.6;display:block}.notice{border:1px solid #343025;background:#1b1912;color:#d8ceaa;border-radius:12px;padding:14px;font-size:12px;line-height:1.7;margin-top:auto}.success{display:none;text-align:center;padding:20px 0}.success .check{width:65px;height:65px;margin:0 auto 16px;border-radius:50%;background:#133a27;color:var(--green);display:grid;place-items:center;font-size:30px}.success h2{font-size:27px}.success p{color:var(--muted);line-height:1.7}.again{background:transparent;border:1px solid #3c4555;color:white;padding:11px 15px;border-radius:10px;cursor:pointer}
+    footer{margin-top:30px;border-top:1px solid #222833;padding-top:22px;text-align:center;color:var(--muted);font-size:12px}.channel{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#15291f;border:1px solid #28553e;color:#a8f3c7;text-decoration:none;padding:13px 19px;border-radius:12px;font-weight:700;font-size:13px;margin-bottom:18px}.channel:hover{background:#1c392a}footer p{margin:4px 0 0}
+    @media(max-width:760px){.wrap{padding:17px 14px 24px}.nav{margin-bottom:38px}.grid{grid-template-columns:1fr}.hero{margin-bottom:26px}.card{padding:21px}.hero h1{letter-spacing:-1.3px}.why{gap:18px}.notice{margin-top:4px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav">
+      <div class="brand"><div class="logo">T</div><span>TEDDY TECH <span style="color:var(--gold)">SUPPORT</span></span></div>
+      <div class="badge">✦ Voluntary support</div>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Built by the community, for the community</div>
+      <h1>Help us keep the<br><span>good stuff running.</span></h1>
+      <p>Your optional contribution helps cover hosting, servers, domains, maintenance and future automation projects. Every donation is appreciated — and all services remain free.</p>
+    </section>
+    <section class="grid">
+      <div class="card">
+        <div id="donationForm">
+          <h2>Make a donation</h2>
+          <p class="sub">Choose any amount you're comfortable with. There's no fixed target and no pressure to give.</p>
+          <form id="form">
+            <label for="email">Email address</label>
+            <input class="input" id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+            <label>Choose an amount</label>
+            <div class="amounts">
+              <button class="amt" type="button" data-amount="100">100</button>
+              <button class="amt active" type="button" data-amount="250">250</button>
+              <button class="amt" type="button" data-amount="500">500</button>
+              <button class="amt" type="button" data-amount="1000">1,000</button>
+            </div>
+            <label for="amount">Or enter your own amount</label>
+            <div class="currrow">
+              <select class="input" id="currency" aria-label="Currency">
+                <option value="KES">KES</option><option value="NGN">NGN</option><option value="GHS">GHS</option><option value="ZAR">ZAR</option>
+              </select>
+              <input class="input" id="amount" type="number" min="1" max="10000000" step="1" value="250" required inputmode="numeric">
+            </div>
+            <label>Payment method</label>
+            <div class="payment-options">
+              <button class="method active" type="button" data-channel="all">💳 Card <small>Debit or credit card</small></button>
+              <button class="method" type="button" data-channel="mobile_money">📱 Mobile money <small>Where available</small></button>
+            </div>
+            <p class="sub" style="margin:10px 0 0">Card checkout may also show mobile money where supported. Paystack displays the methods available for your account and currency.</p>
+            <button class="submit" id="payBtn" type="submit">Continue to secure payment →</button>
+            <div class="message" id="message" role="status"></div>
+            <div class="secure">🔒 Secure checkout powered by Paystack</div>
+          </form>
+        </div>
+        <div class="success" id="success" aria-live="polite">
+          <div class="check">✓</div>
+          <h2 id="successTitle">Thank you for supporting us!</h2>
+          <p id="successText">Your support means a lot. Your contribution helps us maintain our free projects and services.</p>
+          <button class="again" id="again" type="button">Make another donation</button>
+        </div>
+      </div>
+      <aside class="card why">
+        <div>
+          <h2>Where your support goes</h2>
+          <p class="why-intro">Teddy Tech is a project name for community tools and experiments. Donations are entirely optional and help us keep useful services available.</p>
+        </div>
+        <div class="feature"><div class="icon">☁️</div><div><b>Servers & hosting</b><span>Keep websites, bots and automation services online.</span></div></div>
+        <div class="feature"><div class="icon">🛠️</div><div><b>Maintenance & security</b><span>Updates, backups, bug fixes and reliability improvements.</span></div></div>
+        <div class="feature"><div class="icon">⚡</div><div><b>New free projects</b><span>Build and improve tools that the community can use without a fee.</span></div></div>
+        <div class="notice">💛 <strong>No purchase required.</strong> Donations are voluntary and do not unlock paid features or guarantee a service. Please only contribute what you can comfortably afford.</div>
+      </aside>
+    </section>
+    <footer>
+      <a class="channel" href="https://whatsapp.com/channel/0029Vb6NveDBPzjPa4vIRt3n" target="_blank" rel="noopener noreferrer">◉ Join our WhatsApp Channel ↗</a>
+      <p>Made with care by <strong style="color:#e5e9f1">Teddy Tech</strong></p>
+      <p>Voluntary community support · Secure payments by Paystack</p>
+    </footer>
+  </main>
+  <script>
+    const form = document.getElementById('form');
+    const amountInput = document.getElementById('amount');
+    const currencyInput = document.getElementById('currency');
+    const message = document.getElementById('message');
+    const payBtn = document.getElementById('payBtn');
+    let channel = 'all';
+
+    document.querySelectorAll('.amt').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.amt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      amountInput.value = btn.dataset.amount;
+    }));
+    amountInput.addEventListener('input', () => {
+      document.querySelectorAll('.amt').forEach(b => b.classList.toggle('active', b.dataset.amount === amountInput.value));
+    });
+    currencyInput.addEventListener('change', () => {
+      document.querySelectorAll('.amt').forEach(b => b.textContent = Number(b.dataset.amount).toLocaleString());
+    });
+    document.querySelectorAll('.method').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.method').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      channel = btn.dataset.channel;
+    }));
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      message.className = 'message'; message.textContent = '';
+      const amount = Number(amountInput.value);
+      if (!Number.isInteger(amount) || amount < 1 || amount > 10000000) {
+        message.className = 'message error'; message.textContent = 'Please enter a valid donation amount.'; return;
+      }
+      payBtn.disabled = true; payBtn.textContent = 'Preparing secure checkout…';
+      try {
+        const response = await fetch('/api/initialize', {
+          method: 'POST', headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({email: document.getElementById('email').value.trim(), amount, currency: currencyInput.value, channel})
+        });
+        const data = await response.json();
+        if (!response.ok || !data.authorization_url) throw new Error(data.error || 'Unable to start payment.');
+        window.location.href = data.authorization_url;
+      } catch (err) {
+        message.className = 'message error'; message.textContent = err.message || 'Payment failed to start. Please try again.';
+        payBtn.disabled = false; payBtn.textContent = 'Continue to secure payment →';
+      }
+    });
+
+    document.getElementById('again').addEventListener('click', () => {
+      document.getElementById('success').style.display = 'none';
+      document.getElementById('donationForm').style.display = 'block';
+      history.replaceState({}, '', location.pathname);
+    });
+
+    async function checkPaymentReturn() {
+      const params = new URLSearchParams(location.search);
+      const reference = params.get('reference');
+      if (!reference || params.get('payment') !== 'return') return;
+      document.getElementById('donationForm').style.display = 'none';
+      const success = document.getElementById('success');
+      success.style.display = 'block';
+      document.getElementById('successTitle').textContent = 'Checking your payment…';
+      document.getElementById('successText').textContent = 'Please wait while Paystack confirms the transaction.';
+      try {
+        const response = await fetch('/api/verify?reference=' + encodeURIComponent(reference));
+        const data = await response.json();
+        if (response.ok && data.status === 'success') {
+          document.getElementById('successTitle').textContent = 'Thank you for your donation!';
+          document.getElementById('successText').textContent = 'Your payment was verified successfully. Your support helps keep Teddy Tech projects and free services running.';
+        } else {
+          document.getElementById('successTitle').textContent = 'Payment not confirmed yet';
+          document.getElementById('successText').textContent = 'Paystack has not confirmed this transaction as successful. If you completed payment, please wait a little and check your Paystack receipt before trying again.';
+        }
+      } catch (_) {
+        document.getElementById('successTitle').textContent = 'We could not verify the payment yet';
+        document.getElementById('successText').textContent = 'Please check your Paystack receipt. If money was deducted, contact support before making another payment.';
+      }
+    }
+    checkPaymentReturn();
+  </script>
+</body>
+</html>
