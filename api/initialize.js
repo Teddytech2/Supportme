@@ -1,59 +1,115 @@
-module.exports = async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  if (req.method === "OPTIONS") return res.status(204).end();
-  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+const PAYSTACK_API = 'https://api.paystack.co';
 
-  const secret = process.env.PAYSTACK_SECRET_KEY;
-  if (!secret) {
-    return res.status(500).json({ error: "Add PAYSTACK_SECRET_KEY in Vercel environment variables." });
+module.exports = async function handler(req, res) {
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.setHeader('Cache-Control', 'no-store');
+
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST');
+
+    return res.status(405).json({
+      success: false,
+      error: 'Method not allowed. Use POST.'
+    });
+  }
+
+  const secretKey = process.env.PAYSTACK_SECRET_KEY;
+
+  if (!secretKey) {
+    return res.status(500).json({
+      success: false,
+      error: 'PAYSTACK_SECRET_KEY is missing from Vercel environment variables.'
+    });
   }
 
   try {
-    const { email, amount, currency = "KES", channel = "all" } = req.body || {};
-    const value = Number(amount);
+    const body = req.body || {};
+
+    const email = String(body.email || '').trim();
+    const amount = Number(body.amount);
+    const currency = String(body.currency || 'KES').toUpperCase();
+
+    const allowedCurrencies = ['KES', 'NGN', 'GHS', 'ZAR', 'USD'];
+
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return res.status(400).json({ error: "Enter a valid email address." });
-    }
-    if (!Number.isInteger(value) || value < 1 || value > 10000000) {
-      return res.status(400).json({ error: "Enter a valid donation amount." });
-    }
-    const allowedCurrencies = ["KES", "NGN", "GHS", "ZAR"];
-    if (!allowedCurrencies.includes(currency)) {
-      return res.status(400).json({ error: "Unsupported currency." });
+      return res.status(400).json({
+        success: false,
+        error: 'Please enter a valid email address.'
+      });
     }
 
-    const channels = channel === "card" ? ["card"] :
-      channel === "mobile_money" ? ["mobile_money"] :
-      ["card", "mobile_money"];
+    if (!Number.isFinite(amount) || amount <= 0) {
+      return res.status(400).json({
+        success: false,
+        error: 'Please enter a valid donation amount.'
+      });
+    }
+
+    if (!allowedCurrencies.includes(currency)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Unsupported currency.'
+      });
+    }
+
+    const amountInSubunits = Math.round(amount * 100);
+
+    if (!Number.isSafeInteger(amountInSubunits) || amountInSubunits < 1) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid donation amount.'
+      });
+    }
 
     const payload = {
       email,
-      amount: String(value * 100),
+      amount: amountInSubunits,
       currency,
-      channels,
       metadata: {
-        purpose: "Voluntary donation to Teddy Tech Support"
+        project: 'Teddy Tech Support',
+        donation_type: 'Voluntary'
       }
     };
 
-    // No callback_url is sent: Paystack uses the callback URL configured in the dashboard.
-    const response = await fetch("https://api.paystack.co/transaction/initialize", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${secret}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-    const data = await response.json();
-    if (!response.ok || !data.status || !data.data?.authorization_url) {
-      return res.status(502).json({ error: data.message || "Could not start payment. Please try again." });
+    const response = await fetch(
+      `${PAYSTACK_API}/transaction/initialize`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${secretKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }
+    );
+
+    const result = await response.json();
+
+    if (
+      !response.ok ||
+      !result.status ||
+      !result.data ||
+      !result.data.authorization_url
+    ) {
+      console.error('Paystack initialization failed:', result);
+
+      return res.status(502).json({
+        success: false,
+        error: result.message || 'Paystack could not initialize the donation.'
+      });
     }
-    return res.status(200).json({ authorization_url: data.data.authorization_url });
-  } catch (err) {
-    console.error("Paystack initialize error:", err);
-    return res.status(500).json({ error: "Payment service temporarily unavailable." });
+
+    return res.status(200).json({
+      success: true,
+      authorization_url: result.data.authorization_url,
+      reference: result.data.reference
+    });
+  } catch (error) {
+    console.error('Payment initialization error:', error);
+
+    return res.status(500).json({
+      success: false,
+      error: 'Unable to initialize payment. Please try again.'
+    });
   }
 };
