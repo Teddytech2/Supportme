@@ -1,33 +1,74 @@
-module.exports = async (req, res) => {
-  if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
+const PAYSTACK_API = 'https://api.paystack.co';
 
-  const secret = process.env.PAYSTACK_SECRET_KEY;
-  if (!secret) {
-    return res.status(500).json({ error: "Add PAYSTACK_SECRET_KEY in Vercel environment variables." });
+module.exports = async function handler(req, res) {
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.setHeader('Cache-Control', 'no-store');
+
+  if (req.method !== 'GET') {
+    res.setHeader('Allow', 'GET');
+
+    return res.status(405).json({
+      success: false,
+      error: 'Method not allowed. Use GET.'
+    });
   }
 
-  const reference = String(req.query.reference || "");
-  if (!/^[A-Za-z0-9=._-]+$/.test(reference) || reference.length > 100) {
-    return res.status(400).json({ error: "Invalid payment reference." });
+  const secretKey = process.env.PAYSTACK_SECRET_KEY;
+
+  if (!secretKey) {
+    return res.status(500).json({
+      success: false,
+      error: 'PAYSTACK_SECRET_KEY is missing from Vercel.'
+    });
+  }
+
+  const reference = String(req.query?.reference || '').trim();
+
+  if (!reference) {
+    return res.status(400).json({
+      success: false,
+      error: 'Payment reference is required.'
+    });
   }
 
   try {
-    const response = await fetch(`https://api.paystack.co/transaction/verify/${encodeURIComponent(reference)}`, {
-      headers: { Authorization: `Bearer ${secret}` }
-    });
+    const response = await fetch(
+      `${PAYSTACK_API}/transaction/verify/${encodeURIComponent(reference)}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${secretKey}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
     const result = await response.json();
+
     if (!response.ok || !result.status || !result.data) {
-      return res.status(502).json({ status: "unknown", error: "Could not verify payment right now." });
+      return res.status(502).json({
+        success: false,
+        error: result.message || 'Unable to verify payment.'
+      });
     }
-    const paid = result.data.status === "success";
+
+    const payment = result.data;
+
     return res.status(200).json({
-      status: paid ? "success" : result.data.status,
-      amount: result.data.amount,
-      currency: result.data.currency,
-      reference: result.data.reference
+      success: true,
+      status: payment.status,
+      reference: payment.reference,
+      amount: payment.amount,
+      currency: payment.currency,
+      paid_at: payment.paid_at,
+      email: payment.customer?.email || null
     });
-  } catch (err) {
-    console.error("Paystack verify error:", err);
-    return res.status(500).json({ status: "unknown", error: "Could not verify payment right now." });
+  } catch (error) {
+    console.error('Payment verification error:', error);
+
+    return res.status(500).json({
+      success: false,
+      error: 'An error occurred while verifying payment.'
+    });
   }
 };
