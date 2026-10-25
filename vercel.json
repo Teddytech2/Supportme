@@ -1,9 +1,3 @@
 {
-  "name": "teddy-tech-support-donations",
-  "version": "1.0.1",
-  "private": true,
-  "description": "Teddy Tech Support voluntary donation website",
-  "engines": {
-    "node": ">=18"
-  }
+  "cleanUrls": true
 }
