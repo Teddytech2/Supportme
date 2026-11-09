@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Teddy Tech Support | Support Our Projects</title>
+  <title>Teddy Tech Support | Donations Closed</title>
 
   <meta
     name="description"
-    content="Support Teddy Tech projects through voluntary donations. Help us maintain hosting, servers, domains, security, backups, and free services."
+    content="Teddy Tech no longer receives donations. Everything is now automated on our main website teddyxmd.new.tg"
   >
 
   <meta name="theme-color" content="#080b14">
@@ -114,6 +114,12 @@
       white-space: nowrap;
     }
 
+    .badge.closed {
+      border-color: rgba(248, 113, 113, 0.35);
+      background: rgba(248, 113, 113, 0.1);
+      color: #fca5a5;
+    }
+
     main {
       padding: 65px 0;
     }
@@ -177,59 +183,23 @@
       margin-top: 0;
     }
 
-    .field {
+    .closed-box {
       margin-top: 20px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(248, 113, 113, 0.08);
+      border: 1px solid rgba(248, 113, 113, 0.25);
+      color: #fecaca;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    input,
-    select {
-      width: 100%;
-      border: 1px solid var(--border);
-      background: #0a1020;
-      color: var(--text);
-      border-radius: 11px;
-      padding: 14px;
-      outline: none;
-    }
-
-    input:focus,
-    select:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(255, 212, 71, 0.08);
-    }
-
-    .amount-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
-      margin-top: 10px;
-    }
-
-    .amount-button {
-      background: #0a1020;
-      border: 1px solid var(--border);
-      color: var(--text);
-      border-radius: 10px;
-      padding: 11px 5px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .amount-button:hover,
-    .amount-button.active {
-      color: var(--gold);
-      border-color: var(--gold);
-      background: rgba(255, 212, 71, 0.08);
+    .closed-box strong {
+      color: #fff;
     }
 
     .primary-button {
+      display: block;
       width: 100%;
       border: 0;
       border-radius: 12px;
@@ -240,6 +210,8 @@
       font-weight: 900;
       cursor: pointer;
       transition: 0.2s;
+      text-decoration: none;
+      text-align: center;
     }
 
     .primary-button:hover {
@@ -247,33 +219,19 @@
       transform: translateY(-1px);
     }
 
-    .primary-button:disabled {
-      opacity: 0.6;
-      cursor: wait;
-      transform: none;
-    }
-
-    .notice {
-      display: none;
-      margin-top: 16px;
-      padding: 13px;
-      border-radius: 10px;
-      font-size: 13px;
-      overflow-wrap: anywhere;
-    }
-
-    .notice.error {
+    .secondary-button {
       display: block;
-      color: #fecaca;
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-
-    .notice.success {
-      display: block;
-      color: #bbf7d0;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.25);
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 12px;
+      background: #0a1020;
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
     }
 
     .benefit {
@@ -340,24 +298,6 @@
       display: none !important;
     }
 
-    .payment-result {
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    .result-icon {
-      width: 75px;
-      height: 75px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 20px;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.3);
-      color: var(--green);
-      border-radius: 50%;
-      font-size: 35px;
-    }
-
     footer {
       border-top: 1px solid var(--border);
       padding: 25px 0;
@@ -405,145 +345,97 @@
         </div>
       </div>
 
-      <div class="badge">VOLUNTARY SUPPORT</div>
+      <div class="badge closed">DONATIONS CLOSED</div>
     </div>
   </header>
 
   <main class="container">
     <section class="hero">
-      <div class="eyebrow">Built by Teddy Tech</div>
+      <div class="eyebrow">Teddy Tech Update</div>
 
       <h1>
-        Help Us Keep<br>
-        <span>Technology Free.</span>
+        We No Longer<br>
+        <span>Receive Donations.</span>
       </h1>
 
       <p>
-        Your voluntary support helps us maintain our servers, hosting,
-        domains, backups, security, and free technology services.
-        Every contribution is appreciated.
+        Thank you for all your support so far. Teddy Tech no longer accepts donations.
+        Everything is now fully automated on our main website.
       </p>
     </section>
 
     <section class="layout">
       <div class="card" id="donationCard">
-        <h2>Support Our Projects</h2>
+        <h2>Donations Are Closed</h2>
 
         <p class="subtext">
-          Choose any amount you wish to contribute. There are no mandatory
-          donation packages or targets.
+          Please do not send any donation. This payment page has been disabled.
         </p>
 
-        <form id="donationForm">
-          <div class="field">
-            <label for="email">Email address</label>
-            <input
-              id="email"
-              type="email"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required
-            >
-          </div>
+        <div class="closed-box">
+          <strong>🚫 We no longer receive donations.</strong><br><br>
+          All Teddy Tech services, deployments, and payments are now automated
+          on our main website. Please use the main website for everything —
+          no manual donations are needed.
+        </div>
 
-          <div class="field">
-            <label for="amount">Donation amount</label>
+        <a class="primary-button" href="https://teddyxmd.new.tg">
+          Go to Main Website → teddyxmd.new.tg
+        </a>
 
-            <div class="amount-grid">
-              <button class="amount-button" type="button" data-amount="100">
-                100
-              </button>
-
-              <button class="amount-button" type="button" data-amount="250">
-                250
-              </button>
-
-              <button class="amount-button" type="button" data-amount="500">
-                500
-              </button>
-            </div>
-
-            <input
-              id="amount"
-              type="number"
-              min="1"
-              step="0.01"
-              placeholder="Enter any amount"
-              required
-              style="margin-top: 12px"
-            >
-          </div>
-
-          <div class="field">
-            <label for="currency">Currency</label>
-
-            <select id="currency" required>
-              <option value="KES">KES — Kenyan Shilling</option>
-              <option value="NGN">NGN — Nigerian Naira</option>
-              <option value="GHS">GHS — Ghanaian Cedi</option>
-              <option value="ZAR">ZAR — South African Rand</option>
-              <option value="USD">USD — US Dollar</option>
-            </select>
-          </div>
-
-          <button class="primary-button" id="donateButton" type="submit">
-            Continue to Secure Payment →
-          </button>
-
-          <div
-            id="formNotice"
-            class="notice"
-            role="status"
-            aria-live="polite"
-          ></div>
-        </form>
+        <a class="secondary-button" href="https://teddyxmd.new.tg">
+          Open Teddy Tech Bot Deployer
+        </a>
 
         <p class="disclaimer">
-          Donations are entirely voluntary. Our services remain free;
-          contributing is not required to use them. Payments are processed
-          by Paystack.
+          If anyone asks you to send a donation to Teddy Tech, please ignore it.
+          We do not accept donations anymore. Use only https://teddyxmd.new.tg
         </p>
       </div>
 
       <div class="card">
         <div id="supportContent">
-          <h2>Where Your Support Goes</h2>
+          <h2>Everything Is Now Automated</h2>
 
           <p class="subtext">
-            Contributions help keep our projects available and maintained.
+            No need to donate manually. Just use the main website.
           </p>
+
+          <div class="benefit">
+            <div class="benefit-icon">🤖</div>
+            <div>
+              <h3>Automated Deployments</h3>
+              <p>Deploy TEDDY-XMD, JUNE ULTRA and CYPHERX automatically on teddyxmd.new.tg</p>
+            </div>
+          </div>
 
           <div class="benefit">
             <div class="benefit-icon">☁️</div>
             <div>
-              <h3>Hosting & Servers</h3>
-              <p>Help cover hosting, VPS servers, and infrastructure costs.</p>
+              <h3>Automated Wallet & Payments</h3>
+              <p>Top up Teddy Coins and pay securely through the main website.</p>
             </div>
           </div>
 
           <div class="benefit">
             <div class="benefit-icon">🌐</div>
             <div>
-              <h3>Domains & Websites</h3>
-              <p>Maintain websites, domains, and online project availability.</p>
+              <h3>One Main Website</h3>
+              <p>All services, support and updates are now in one place.</p>
             </div>
           </div>
 
           <div class="benefit">
             <div class="benefit-icon">🛡️</div>
             <div>
-              <h3>Security & Backups</h3>
-              <p>Support maintenance, data protection, and reliable backups.</p>
+              <h3>Stay Safe</h3>
+              <p>We do not accept donations. Beware of anyone claiming to collect donations for Teddy Tech.</p>
             </div>
           </div>
 
-          <div class="benefit">
-            <div class="benefit-icon">🤖</div>
-            <div>
-              <h3>Free Technology Projects</h3>
-              <p>Help us develop and maintain free automation tools and services.</p>
-            </div>
-          </div>
+          <a class="primary-button" href="https://teddyxmd.new.tg">
+            Visit teddyxmd.new.tg →
+          </a>
 
           <a
             class="channel-button"
@@ -553,35 +445,6 @@
           >
             💬 Join Our WhatsApp Channel
           </a>
-        </div>
-
-        <div id="paymentResult" class="payment-result hidden">
-          <div class="result-icon" id="resultIcon">✓</div>
-
-          <h2 id="resultTitle">Thank You!</h2>
-
-          <p class="subtext" id="resultMessage">
-            Your support means a lot to Teddy Tech.
-          </p>
-
-          <div id="paymentDetails" class="subtext"></div>
-
-          <a
-            class="channel-button"
-            href="https://whatsapp.com/channel/0029Vb6NveDBPzjPa4vIRt3n"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            💬 Join Our WhatsApp Channel
-          </a>
-
-          <button
-            class="primary-button"
-            type="button"
-            id="returnButton"
-          >
-            Return to Donation Page
-          </button>
         </div>
       </div>
     </section>
@@ -589,193 +452,24 @@
 
   <footer>
     <div class="container">
-      <strong>TEDDY TECH</strong> · Independent technology projects.
-      All contributions are voluntary.
+      <strong>TEDDY TECH</strong> · We no longer receive donations.
       <br>
-      Payments are processed securely through Paystack.
+      Everything is automated on <a href="https://teddyxmd.new.tg">https://teddyxmd.new.tg</a>
     </div>
   </footer>
 
   <script>
-    const form = document.getElementById('donationForm');
-    const emailInput = document.getElementById('email');
-    const amountInput = document.getElementById('amount');
-    const currencyInput = document.getElementById('currency');
-    const donateButton = document.getElementById('donateButton');
-    const formNotice = document.getElementById('formNotice');
-
-    const donationCard = document.getElementById('donationCard');
-    const supportContent = document.getElementById('supportContent');
-    const paymentResult = document.getElementById('paymentResult');
-
-    function showNotice(message, type = 'error') {
-      formNotice.textContent = message;
-      formNotice.className = 'notice ' + type;
-    }
-
-    function clearNotice() {
-      formNotice.textContent = '';
-      formNotice.className = 'notice';
-    }
-
-    document.querySelectorAll('[data-amount]').forEach(button => {
-      button.addEventListener('click', () => {
-        amountInput.value = button.dataset.amount;
-
-        document.querySelectorAll('[data-amount]').forEach(item => {
-          item.classList.remove('active');
-        });
-
-        button.classList.add('active');
-      });
-    });
-
-    async function readJsonResponse(response) {
-      const text = await response.text();
-
-      try {
-        return JSON.parse(text);
-      } catch {
-        console.error(
-          'Expected JSON but received:',
-          text.slice(0, 500)
-        );
-
-        throw new Error(
-          'The payment API returned a non-JSON response. Check the Vercel deployment and API routes.'
-        );
-      }
-    }
-
-    form.addEventListener('submit', async event => {
-      event.preventDefault();
-      clearNotice();
-
-      const email = emailInput.value.trim();
-      const amount = Number(amountInput.value);
-      const currency = currencyInput.value;
-
-      if (!email) {
-        showNotice('Please enter your email address.');
+    // Donations are closed - block any old payment links / ?reference= URLs
+    // and send users to the main website.
+    (function(){
+      var params = new URLSearchParams(window.location.search);
+      if(params.get('reference')){
+        document.body.innerHTML = '<div style="min-height:100vh;display:grid;place-items:center;background:#080b14;color:#fff;font-family:Arial;text-align:center;padding:20px"><div><h1 style="color:#ffd447">Donations Are Closed</h1><p style="color:#a7b0c0">We no longer receive donations. Everything is automated on our main website.</p><a href="https://teddyxmd.new.tg" style="display:inline-block;margin-top:20px;background:#ffd447;color:#111;padding:14px 22px;border-radius:12px;font-weight:900;text-decoration:none">Go to teddyxmd.new.tg →</a></div></div>';
         return;
       }
-
-      if (!Number.isFinite(amount) || amount <= 0) {
-        showNotice('Please enter a valid donation amount.');
-        return;
-      }
-
-      donateButton.disabled = true;
-      donateButton.textContent = 'Connecting to Paystack...';
-
-      try {
-        const response = await fetch('/api/initialize', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            email,
-            amount,
-            currency
-          })
-        });
-
-        const data = await readJsonResponse(response);
-
-        if (!response.ok || !data.authorization_url) {
-          throw new Error(
-            data.error || 'Unable to start payment. Please try again.'
-          );
-        }
-
-        window.location.href = data.authorization_url;
-      } catch (error) {
-        showNotice(error.message || 'Something went wrong.');
-
-        donateButton.disabled = false;
-        donateButton.textContent = 'Continue to Secure Payment →';
-      }
-    });
-
-    document.getElementById('returnButton').addEventListener('click', () => {
-      window.location.href = window.location.pathname;
-    });
-
-    async function verifyReturnedPayment() {
-      const params = new URLSearchParams(window.location.search);
-      const reference = params.get('reference');
-
-      if (!reference) {
-        return;
-      }
-
-      donationCard.classList.add('hidden');
-      supportContent.classList.add('hidden');
-      paymentResult.classList.remove('hidden');
-
-      document.getElementById('resultIcon').textContent = '…';
-      document.getElementById('resultTitle').textContent = 'Checking Payment';
-      document.getElementById('resultMessage').textContent =
-        'Please wait while we confirm your transaction with Paystack.';
-
-      try {
-        const response = await fetch(
-          '/api/verify?reference=' + encodeURIComponent(reference),
-          {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/json'
-            },
-            cache: 'no-store'
-          }
-        );
-
-        const data = await readJsonResponse(response);
-
-        if (!response.ok || !data.success) {
-          throw new Error(data.error || 'Payment verification failed.');
-        }
-
-        if (data.status === 'success') {
-          document.getElementById('resultIcon').textContent = '✓';
-          document.getElementById('resultTitle').textContent =
-            'Thank You for Your Support!';
-
-          document.getElementById('resultMessage').textContent =
-            'Paystack has confirmed your donation. Your support helps us maintain our projects and free services.';
-
-          document.getElementById('paymentDetails').textContent =
-            'Reference: ' + data.reference;
-        } else {
-          document.getElementById('resultIcon').textContent = '!';
-          document.getElementById('resultTitle').textContent =
-            'Payment Not Confirmed';
-
-          document.getElementById('resultMessage').textContent =
-            'The transaction is currently marked as "' +
-            data.status +
-            '". Please check your Paystack receipt or contact support if you were charged.';
-
-          document.getElementById('paymentDetails').textContent =
-            'Reference: ' + data.reference;
-        }
-      } catch (error) {
-        document.getElementById('resultIcon').textContent = '!';
-        document.getElementById('resultTitle').textContent =
-          'Unable to Confirm Payment';
-
-        document.getElementById('resultMessage').textContent =
-          error.message ||
-          'We could not verify the payment. Please try again later.';
-
-        document.getElementById('paymentDetails').textContent =
-          'Reference: ' + reference;
-      }
-    }
-
-    verifyReturnedPayment();
+      // Optional: auto-redirect after 8 seconds
+      // setTimeout(function(){ window.location.href = 'https://teddyxmd.new.tg'; }, 8000);
+    })();
   </script>
 </body>
 </html>
